@@ -1,0 +1,417 @@
+:root {
+    --dark-bg: #000000;
+    --dark-card: #1d1e21;
+    --dark-text: #e0e0e0;
+    --primary-color: #50494a; /* Żywy czerwony dla akcentów */
+    --secondary-color: #533483; /* Fioletowy dla przycisków pomocniczych */
+    --coffee-color: #6F4E37;
+    --border-color: #000000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    display: flex;
+    /* POPRAWKA 1: Wyśrodkowanie całej zawartości body (gdy nie jest na full screen) */
+    align-items: center; 
+    min-height: 100vh;
+    font-size: 16px;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark-card);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: var(--dark-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Główna zawartość */
+.main-content {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1400px;
+    /* Utrzymujemy wyśrodkowanie horyzontalne dla main-content */
+    margin: 20px auto; 
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 250px; /* Stała szerokość */
+    background-color: var(--dark-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+}
+
+.sidebar h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: var(--dark-text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: var(--primary-color);
+}
+
+.sidebar ul li a .fas {
+    width: 20px; /* Utrzymuje wyrównanie ikon */
+    text-align: center;
+}
+
+.chat-widget {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.chat-widget h3 {
+    color: var(--dark-text);
+    margin-bottom: 10px;
+}
+
+/* Karty (ogólny styl dla sekcji) */
+.card {
+    background-color: var(--dark-card);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px; /* Jeśli sąsiadujące karty */
+}
+
+/* Sekcja timera */
+.timer-section {
+    flex: 1;
+    /* POPRAWKA 2: Zapewnia, że timer-section zajmuje całą dostępną szerokość na main-content */
+    width: 100%;
+    max-width: 500px; /* Dodatkowe ograniczenie, by karta była w stylu apki */
+}
+
+.timer-section .card {
+    display: flex;
+    flex-direction: column;
+    /* POPRAWKA 3: Wyśrodkowuje całą zawartość (controls, zegar, filiżanka) wewnątrz karty */
+    align-items: center;
+}
+
+.timer-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.focus-goal {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.focus-goal label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--dark-text);
+}
+
+#focus-goal-input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    background-color: #2b3a55;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--dark-text);
+    font-size: 1em;
+}
+
+#focus-goal-input::placeholder {
+    color: #888;
+}
+
+.timer-controls {
+    display: flex;
+    flex-wrap: wrap; 
+    /* POPRAWKA 4: Wyśrodkowuje input i przyciski w poziomie wewnątrz karty */
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
+    /* POPRAWKA 5: Wyrównuje w dół, by input i przyciski były na jednej linii bazowej */
+    align-items: flex-end; 
+}
+
+.input-group, .animation-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.timer-controls label {
+    margin-bottom: 8px;
+    color: var(--dark-text);
+    font-weight: 500;
+}
+
+#minutes, #animation-selector {
+    padding: 10px;
+    background-color: #858585;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--dark-text);
+    font-size: 1em;
+    width: 120px;
+    appearance: none; /* Ukrywa domyślną strzałkę selecta */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23e0e0e0' d='M9.293 12.95l-3.293-3.293a1 1 0 011.414-1.414L10 10.586l2.586-2.586a1 1 0 011.414 1.414l-3.293 3.293a1 1 0 01-1.414 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    /* POPRAWKA 6: Wyrównuje przyciski do dołu, by pasowały do inputu */
+    align-items: flex-end; 
+}
+
+/* Przyciski */
+.btn-primary, .btn-secondary {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #c9344d;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #9b9b9b;
+    transform: translateY(-2px);
+}
+
+/* Wyświetlacz timera */
+.timer-display {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#countdown {
+    font-size: 5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.cup-wrapper {
+    width: 200px; /* Większa filiżanka */
+    height: 200px;
+    margin: 0 auto 20px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Pozycja kawy będzie na dole */
+}
+
+#coffee-cup {
+    width: 100%;
+    height: 100%;
+    /* Transition dla całej filiżanki, jeśli chcesz animować jej rozmiar/przesunięcie */
+    /* transition: transform 0.5s ease-in-out; */ 
+}
+
+/* Kolory SVG dla ciemnego motywu */
+#coffee-cup ellipse { fill: #444; } /* Ciemniejszy spodek */
+#coffee-cup rect:first-of-type { fill: #333; } /* Ciemniejszy korpus kubka */
+#coffee-cup path { stroke: #333; } /* Ucho kubka */
+
+#coffee-level {
+    fill: var(--coffee-color);
+    transition: height 1s ease-out, y 1s ease-out; /* Gładka animacja poziomu kawy */
+}
+
+
+.status-message {
+    margin-top: 20px;
+    font-style: italic;
+    color: #aaa;
+    font-size: 1.1em;
+}
+
+/* Inne sekcje (Habits & Goals) */
+.other-sections {
+    flex: 1; /* Rozciąga się na dostępną przestrzeń */
+}
+
+.other-sections .card h2 {
+    color: var(--primary-color);
+}
+
+/* Stopka */
+.footer {
+    background-color: var(--dark-card);
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #888;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto; /* Przesuwa stopkę na sam dół */
+}
+
+.footer a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsywność */
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-width: 600px; /* Ograniczenie szerokości na małych ekranach */
+        margin-bottom: 20px;
+    }
+
+    .timer-section {
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+    
+    .navbar ul {
+        margin-top: 15px;
+        flex-wrap: wrap; /* Pozwala na zawijanie linków */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar ul li {
+        margin: 5px 10px;
+    }
+
+    .timer-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar .logo {
+        font-size: 1.5em;
+    }
+
+    #countdown {
+        font-size: 4em;
+    }
+    
+    .cup-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .input-group input, .animation-choice select {
+        width: 100px;
+    }
+}

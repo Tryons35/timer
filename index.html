@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boost Focus Timer PRO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+
+    <main class="main-content">
+       
+
+        <section class="timer-section" id="timer-section">
+            <div class="card">
+               
+
+                <div class="timer-controls">
+                    <div class="input-group">
+                        <label for="minutes">Czas (minuty):</label>
+                        <input type="number" id="minutes" value="25" min="1" max="180">
+                    </div>
+                    <div class="animation-choice">
+                       
+                    <div class="action-buttons">
+                        <button id="start-button" class="btn-primary"><i class="fas fa-play"></i> Start</button>
+                        <button id="reset-button" class="btn-secondary"><i class="fas fa-sync-alt"></i> Reset</button>
+                    </div>
+                </div>
+
+                <div class="timer-display">
+                    <div id="countdown">25:00</div>
+                    
+                    <div class="cup-wrapper">
+                        <svg id="coffee-cup" viewBox="0 0 100 100">
+                            <ellipse cx="50" cy="95" rx="40" ry="5" fill="#444"/>
+                            <rect x="25" y="30" width="50" height="60" rx="10" fill="#333"/>
+                            <path d="M75 50 h10 a10 10 0 0 1 0 20 h-10" fill="none" stroke="#333" stroke-width="5"/>
+                            <rect id="coffee-level" x="25" y="30" width="50" height="60" rx="10" fill="#6F4E37"/>
+                        </svg>
+                    </div>
+                    
+                    <p class="status-message" id="status-message">Gotowy do rozpoczęcia sesji</p>
+                </div>
+            </div>
+        </section>
+
+       
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
